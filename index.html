@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>WP Rocket Settings for Wistia Compatibility</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WP Rocket Settings for Wistia Compatibility</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --wistia-blue: #2B59FF;
+      --wistia-dark: #1A1F36;
+      --wistia-light-blue: #EEF2FF;
+      --wistia-accent: #54D4FF;
+      --text-primary: #1A1F36;
+      --text-secondary: #4A5068;
+      --text-muted: #7A7F96;
+      --bg-page: #F7F8FC;
+      --bg-white: #FFFFFF;
+      --border: #E2E5F1;
+      --callout-amber: #FFF8E6;
+      --callout-amber-border: #F5C518;
+      --callout-amber-text: #7A5C00;
+      --code-bg: #F0F2F8;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    .header {
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.95);
+    }
+
+    .header-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .header-logo {
+      height: 32px;
+      width: auto;
+    }
+
+    .header-divider {
+      width: 1px;
+      height: 24px;
+      background: var(--border);
+    }
+
+    .header-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* Main Content */
+    .main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* Title Section */
+    .title-section {
+      margin-bottom: 40px;
+    }
+
+    .title-section h1 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .title-section .subtitle {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 680px;
+    }
+
+    /* Content Card */
+    .content-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(26, 31, 54, 0.04);
+    }
+
+    /* Callout */
+    .callout {
+      background: var(--callout-amber);
+      border: 1px solid var(--callout-amber-border);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .callout-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+    }
+
+    .callout-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--callout-amber-text);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+
+    .callout-text {
+      font-size: 15px;
+      color: var(--callout-amber-text);
+      line-height: 1.65;
+    }
+
+    .callout-text code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      background: rgba(245, 197, 24, 0.2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    /* Section Headers */
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-text {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    /* Script List */
+    .script-list {
+      list-style: none;
+      margin-bottom: 12px;
+    }
+
+    .script-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      transition: background 0.15s ease;
+    }
+
+    .script-item:hover {
+      background: var(--bg-page);
+    }
+
+    .script-item-bullet {
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      background: var(--wistia-blue);
+      border-radius: 50%;
+      margin-top: 9px;
+    }
+
+    .script-item-content {
+      flex: 1;
+    }
+
+    .script-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--wistia-blue);
+      background: var(--code-bg);
+      padding: 4px 10px;
+      border-radius: 5px;
+      display: inline-block;
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+
+    .script-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .script-footnote {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-style: italic;
+      padding-left: 16px;
+      margin-top: 4px;
+    }
+
+    .script-footnote code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      background: var(--code-bg);
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-style: normal;
+    }
+
+    .script-footnote a {
+      color: var(--wistia-blue);
+      text-decoration: none;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    .script-footnote a:hover {
+      text-decoration: underline;
+    }
+
+    /* Script Groups */
+    .script-group {
+      margin-bottom: 20px;
+    }
+
+    .script-group-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+      margin-left: 16px;
+    }
+
+    .script-group-label.aurora {
+      background: #E8F8EE;
+      color: #1A7A3E;
+      border: 1px solid #B5E8C8;
+    }
+
+    .script-group-label.legacy {
+      background: var(--code-bg);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .aurora-bullet {
+      background: #1A7A3E !important;
+    }
+
+    .script-group-label.additional {
+      background: #EEF2FF;
+      color: var(--wistia-blue);
+      border: 1px solid #C7D2FE;
+    }
+
+    .script-group-heading {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      margin-left: 16px;
+    }
+
+    .additional-bullet {
+      background: var(--wistia-blue) !important;
+    }
+
+    /* Steps */
+    .steps-list {
+      list-style: none;
+      counter-reset: step-counter;
+    }
+
+    .step-item {
+      counter-increment: step-counter;
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .step-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .step-item:first-child {
+      padding-top: 0;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--wistia-blue);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .step-number::before {
+      content: counter(step-counter);
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-text {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .step-text strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .step-image {
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(26, 31, 54, 0.06);
+    }
+
+    .step-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .main {
+        padding: 32px 16px 60px;
+      }
+
+      .content-card {
+        padding: 24px 20px;
+      }
+
+      .title-section h1 {
+        font-size: 26px;
+      }
+
+      .section-title {
+        font-size: 19px;
+      }
+
+      .script-url {
+        font-size: 12px;
+      }
+
+      .callout {
+        padding: 16px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .title-section {
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .content-card:nth-child(2) {
+      animation: fadeUp 0.5s ease 0.1s both;
+    }
+
+    .content-card:nth-child(3) {
+      animation: fadeUp 0.5s ease 0.2s both;
+    }
+
+    .content-card:nth-child(4) {
+      animation: fadeUp 0.5s ease 0.3s both;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <img
+        src="https://raw.githubusercontent.com/pook-sapot/my-assets/main/Wistia%20Flags%20Blue.svg"
+        alt="Wistia Logo"
+        class="header-logo"
+      />
+      <div class="header-divider"></div>
+      <span class="header-label">Support Guide</span>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- Title -->
+    <div class="title-section">
+      <h1>WP Rocket Settings for Wistia Compatibility</h1>
+      <p class="subtitle">Ensure smooth playback by excluding Wistia's JavaScript from File Optimizations</p>
+    </div>
+
+    <!-- Intro Card -->
+    <div class="content-card">
+      <p class="section-text">
+        WP Rocket is a popular plugin for optimizing the performance of WordPress sites. While it offers a convenient way to boost the speed of your pages, WP Rocket's file optimization features can break Wistia embeds if not configured correctly. To successfully embed videos on sites running the WP Rocket plugin, Wistia's JavaScript must be excluded from file optimizations in your plugin settings.
+      </p>
+
+      <!-- Callout -->
+      <div class="callout">
+        <svg class="callout-icon" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L1 21h22L12 2z" fill="#F5C518" stroke="#D4A800" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M12 10v4" stroke="#7A5C00" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="12" cy="17" r="1" fill="#7A5C00"/>
+        </svg>
+        <div>
+          <div class="callout-label">Important</div>
+          <p class="callout-text">
+            Wistia's JavaScript files, such as <code>player.js</code> (Aurora) and <code>E-v1.js</code> (Legacy), must not be modified, delayed, or combined/re-hosted. Any of these modifications to Wistia JS can break functionality or prevent embeds from loading on your pages.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exclude Scripts Card -->
+    <div class="content-card">
+      <h2 class="section-title">Exclude Wistia's scripts from JavaScript file optimizations</h2>
+      <p class="section-text">The following scripts should be excluded from any WP Rocket modification:</p>
+
+      <!-- Aurora Player -->
+      <div class="script-group">
+        <div class="script-group-label aurora">Aurora Player</div>
+        <ul class="script-list">
+          <li class="script-item">
+            <span class="script-item-bullet aurora-bullet"></span>
+            <div class="script-item-content">
+              <span class="script-url">https://fast.wistia.com/player.js</span>
+              <div class="script-desc">Required for all Aurora embeds*</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Legacy / Vulcan Player -->
+      <div class="script-group">
+        <div class="script-group-label aurora">Legacy Player (Vulcan)</div>
+        <ul class="script-list">
+          <li class="script-item">
+            <span class="script-item-bullet aurora-bullet"></span>
+            <div class="script-item-content">
+              <span class="script-url">https://fast.wistia.com/assets/external/E-v1.js</span>
+              <div class="script-desc">Required for all legacy embeds*</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Transcript -->
+      <div class="script-group">
+        <div class="script-group-label aurora">Transcript</div>
+        <ul class="script-list">
+          <li class="script-item">
+            <span class="script-item-bullet aurora-bullet"></span>
+            <div class="script-item-content">
+              <span class="script-url">https://fast.wistia.net/assets/external/transcript.js</span>
+              <div class="script-desc">Required for Transcript embeds</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Channel -->
+      <div class="script-group">
+        <div class="script-group-label aurora">Channel</div>
+        <ul class="script-list">
+          <li class="script-item">
+            <span class="script-item-bullet aurora-bullet"></span>
+            <div class="script-item-content">
+              <span class="script-url">https://fast.wistia.com/assets/external/channel.js</span>
+              <div class="script-desc">Required for Channel embeds</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Webinar Registration Forms -->
+      <div class="script-group">
+        <div class="script-group-label aurora">Webinar Registration Forms</div>
+        <ul class="script-list">
+          <li class="script-item">
+            <span class="script-item-bullet aurora-bullet"></span>
+            <div class="script-item-content">
+              <span class="script-url">https://fast.wistia.net/assets/external/form.js</span>
+              <div class="script-desc">Required for Webinar Registration Forms</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <p class="script-footnote">*Includes video, audio, and Webinar embeds.</p>
+      <p class="script-footnote" style="margin-top: 4px;">Not sure which player you're using? Aurora embeds use a <code>&lt;wistia-player&gt;</code> component and <code>player.js</code>. Legacy embeds use <code>E-v1.js</code>. <a href="https://support.wistia.com/en/articles/9994234-all-about-the-aurora-player" target="_blank" rel="noopener">Learn more about Aurora →</a></p>
+    </div>
+
+    <!-- How-to Steps Card -->
+    <div class="content-card">
+      <h2 class="section-title">How to update your WP Rocket exclusion lists</h2>
+
+      <ol class="steps-list">
+        <li class="step-item">
+          <div class="step-number"></div>
+          <div class="step-content">
+            <p class="step-text">From your WP Admin page, go to <strong>"Plugins"</strong>.</p>
+            <div class="step-image">
+              <img
+                src="https://raw.githubusercontent.com/pook-sapot/my-assets/main/image2.png"
+                alt="WP Admin Plugins page showing WP Rocket plugin"
+              />
+            </div>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-number"></div>
+          <div class="step-content">
+            <p class="step-text">Find WP Rocket in the plugin list and select <strong>Settings</strong>, then go to <strong>File Optimization</strong>.</p>
+            <div class="step-image">
+              <img
+                src="https://raw.githubusercontent.com/pook-sapot/my-assets/main/image3.png"
+                alt="WP Rocket Settings and File Optimization"
+              />
+            </div>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-number"></div>
+          <div class="step-content">
+            <p class="step-text">Under <strong>JavaScript Files</strong>, add the necessary Wistia scripts to each <strong>Excluded JavaScript Files</strong> list. These scripts must be excluded from any active JavaScript settings: <strong>Minify/Combine JavaScript</strong>, <strong>Load JavaScript Deferred</strong>, and <strong>Delay JavaScript execution</strong>.</p>
+            <div class="step-image">
+              <img
+                src="https://raw.githubusercontent.com/pook-sapot/my-assets/main/image1.png"
+                alt="WP Rocket JavaScript Files exclusion settings"
+              />
+            </div>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-number"></div>
+          <div class="step-content">
+            <p class="step-text">Click <strong>Save Changes</strong>.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-number"></div>
+          <div class="step-content">
+            <p class="step-text">There may be a delay in seeing these settings take effect, which you can speed up by clearing the WordPress site cache and clearing your personal browser cache.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+  </main>
+
+</body>
+</html>
+    
+  </body>
+  
+</html>
