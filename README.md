@@ -1,0 +1,1 @@
+# WP-Rocket-Settings-for-Wistia-Compatibility
